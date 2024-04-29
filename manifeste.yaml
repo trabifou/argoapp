@@ -2,11 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  namespace: monprojet
   labels:
     app: nginx
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: nginx
@@ -16,6 +15,7 @@ spec:
         app: nginx
     spec:
       containers:
-      
-image: nginx
-      name: nginx
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
